@@ -14,22 +14,22 @@ export const FarmFavorites: React.FC = () => {
   const favoriteItems = [
     {
       id: 'a2-desi-cow-ghee',
-      badge: 'NEW',
+      badge: 'BESTSELLER',
       priceFormatted: '₹ 650',
     },
     {
       id: 'vedic-buffalo-ghee',
-      badge: 'NEW',
+      badge: 'TOP RATED',
       priceFormatted: '₹ 850',
     },
     {
       id: 'raw-wild-forest-honey',
-      badge: 'NEW',
+      badge: 'BESTSELLER',
       priceFormatted: '₹ 380',
     },
     {
       id: 'sprouted-ragi-malt',
-      badge: 'NEW',
+      badge: 'MOST BOOKED',
       priceFormatted: '₹ 290',
     },
   ];
@@ -66,7 +66,7 @@ export const FarmFavorites: React.FC = () => {
         {/* Section Header Block */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="text-2xl sm:text-3xl font-extrabold uppercase tracking-[0.32em] text-[#0A2417]">
-            OUR COLLECTIONS
+            MOST BOOKED PRODUCTS
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-[62px] font-cursive font-normal text-[#320047] tracking-normal leading-tight py-1">
