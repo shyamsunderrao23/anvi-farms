@@ -307,7 +307,7 @@ export default function App() {
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
             <div className="mb-8 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-[34px] font-black text-[#2D0345] tracking-tight">
-                Top Picks from Our Customers
+                Shop Our Products
               </h2>
             </div>
 
