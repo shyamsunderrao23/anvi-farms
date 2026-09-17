@@ -3,7 +3,6 @@ import Header from './components/Header'
 import StoryCategories from './components/StoryCategories'
 import HeroBanner from './components/HeroBanner'
 import WhyChooseUs from './components/WhyChooseUs'
-import ShopByCategory from './components/ShopByCategory'
 import GallerySection from './components/GallerySection'
 import CustomerReviews from './components/CustomerReviews'
 import Footer from './components/Footer'
@@ -485,13 +484,10 @@ export default function App() {
           {/* 5. Why Choose Anvi Farms Section */}
           <WhyChooseUs />
 
-          {/* 6. Shop By Our Category Section */}
-          <ShopByCategory onNavigateCategory={navigateToCategory} />
-
-          {/* 7. Beyond Our Products Gallery Section */}
+          {/* 6. Beyond Our Products Gallery Section */}
           <GallerySection />
 
-          {/* 8. Loved by Our Customers Section */}
+          {/* 7. Loved by Our Customers Section */}
           <CustomerReviews />
         </>
       )}
