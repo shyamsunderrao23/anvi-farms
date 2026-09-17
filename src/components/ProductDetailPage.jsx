@@ -917,7 +917,7 @@ export default function ProductDetailPage({
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
             {relatedProducts.map((p) => {
               const variantIndex = selectedRelatedVariants[p.id] || 0
               const curVariant = p.variants[variantIndex] || p.variants[0]
@@ -929,7 +929,7 @@ export default function ProductDetailPage({
                   className={`flex flex-col justify-between group relative ${openRelatedDropdownId === p.id ? 'z-30' : 'z-10'}`}
                 >
                   {/* Top Image Container */}
-                  <div className="relative h-64 sm:h-72 w-full overflow-hidden mb-3 bg-gray-50">
+                  <div className="relative aspect-square sm:h-80 md:h-88 lg:h-96 w-full overflow-hidden mb-3.5 bg-gray-50">
                     {/* Top-Right Corner Tab Badge (Text | Heart) */}
                     <div className={`absolute top-0 right-0 z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-bl-xl text-white text-xs font-semibold shadow-xs ${p.tagBg || 'bg-[#2D0345]'}`}>
                       <span className="leading-none">{p.tag || 'RECOMMENDED'}</span>

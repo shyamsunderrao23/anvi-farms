@@ -234,15 +234,15 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-            <div className="mb-8 text-center">
+          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+            <div className="mb-10 text-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
                 Shop Our Products
               </h2>
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
               {ALL_PRODUCTS.map((p) => {
                 const variantIndex = selectedVariants[p.id] || 0
                 const currentVariant = p.variants[variantIndex] || p.variants[0]
@@ -254,7 +254,7 @@ export default function App() {
                     className={`flex flex-col justify-between group relative ${openDropdownId === p.id ? 'z-30' : 'z-10'}`}
                   >
                     {/* Top Image Container */}
-                    <div className="relative h-64 sm:h-72 w-full overflow-hidden mb-3 bg-gray-50">
+                    <div className="relative aspect-square sm:h-80 md:h-88 lg:h-96 w-full overflow-hidden mb-3.5 bg-gray-50">
                       {/* Top-Right Corner Tab Badge (Text | Heart) */}
                       <div className={`absolute top-0 right-0 z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-bl-xl text-white text-xs font-semibold shadow-xs ${p.tagBg || 'bg-[#2D0345]'}`}>
                         <span className="leading-none">{p.tag || 'NATURAL'}</span>
