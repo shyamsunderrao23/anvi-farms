@@ -235,20 +235,86 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section className="w-full py-8 sm:py-10 relative bg-white overflow-hidden">
-            {/* Background Illustration Banner (Decreased height, compact & clean) */}
-            <div className="absolute top-0 left-0 right-0 w-full h-36 sm:h-44 md:h-52 pointer-events-none z-0 overflow-hidden">
-              <img 
-                src={shopProductsBg} 
-                alt="" 
-                className="w-full h-full object-cover object-top opacity-90"
-              />
-              {/* Soft bottom fade gradient into pure white */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white" />
+          <section className="w-full py-10 sm:py-12 relative bg-white overflow-hidden">
+            {/* Left Top Corner - Small Botanical Watercolor Leaves */}
+            <div className="absolute top-0 left-0 w-32 sm:w-44 md:w-56 h-32 sm:h-44 md:h-56 pointer-events-none z-0">
+              <svg viewBox="0 0 200 200" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#7F9634" stopOpacity="0.85" />
+                    <stop offset="100%" stopColor="#404D1A" stopOpacity="0.95" />
+                  </linearGradient>
+                  <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#9DBA44" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#5B6F23" stopOpacity="0.9" />
+                  </linearGradient>
+                  <linearGradient id="leafGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#BACF63" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="#7F9634" stopOpacity="0.85" />
+                  </linearGradient>
+                </defs>
+                {/* Main organic curved stem */}
+                <path d="M-10 -10 C20 40 50 70 110 100" stroke="#5B6F23" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
+                <path d="M40 55 C65 85 95 110 135 125" stroke="#5B6F23" strokeWidth="1.8" strokeLinecap="round" opacity="0.6" />
+                <path d="M-5 25 C15 65 35 110 50 155" stroke="#5B6F23" strokeWidth="1.8" strokeLinecap="round" opacity="0.5" />
+                
+                {/* Leaf 1 (Top left) */}
+                <path d="M5 5 C25 -5 55 5 65 25 C65 45 40 50 15 35 Z" fill="url(#leafGrad1)" />
+                <path d="M5 5 Q35 20 65 25" stroke="#3A4616" strokeWidth="1" opacity="0.4" />
+                
+                {/* Leaf 2 (Upper mid) */}
+                <path d="M25 35 C50 25 80 40 90 65 C85 85 60 85 35 65 Z" fill="url(#leafGrad2)" />
+                <path d="M25 35 Q60 55 90 65" stroke="#3A4616" strokeWidth="1" opacity="0.4" />
+
+                {/* Leaf 3 (Branch tip) */}
+                <path d="M60 70 C85 60 120 75 130 98 C120 115 95 115 70 95 Z" fill="url(#leafGrad1)" />
+                <path d="M60 70 Q95 85 130 98" stroke="#3A4616" strokeWidth="1" opacity="0.4" />
+
+                {/* Leaf 4 (Sub branch) */}
+                <path d="M85 105 C110 100 145 115 155 135 C140 150 115 145 95 125 Z" fill="url(#leafGrad3)" />
+
+                {/* Small floating leaves */}
+                <path d="M20 95 C35 90 50 100 55 115 C48 125 35 125 22 110 Z" fill="url(#leafGrad2)" />
+                <path d="M5 130 C18 125 30 135 32 148 C25 155 15 152 6 142 Z" fill="url(#leafGrad3)" />
+                <path d="M70 140 C80 135 92 142 95 152 C88 160 78 158 70 150 Z" fill="url(#leafGrad2)" opacity="0.8" />
+              </svg>
+            </div>
+
+            {/* Right Top Corner - Warm Sun with Soaring Birds/Crows */}
+            <div className="absolute top-0 right-0 w-36 sm:w-48 md:w-60 h-32 sm:h-44 md:h-52 pointer-events-none z-0">
+              <svg viewBox="0 0 220 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="sunGlow" cx="65%" cy="35%" r="60%">
+                    <stop offset="0%" stopColor="#FDE68A" />
+                    <stop offset="50%" stopColor="#F59E0B" />
+                    <stop offset="100%" stopColor="#D97706" />
+                  </radialGradient>
+                  <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFDF7" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#FEF3C7" stopOpacity="0.75" />
+                  </linearGradient>
+                </defs>
+
+                {/* Sun Circle */}
+                <circle cx="170" cy="50" r="32" fill="url(#sunGlow)" opacity="0.9" />
+
+                {/* Soft Watercolor Clouds under/over sun */}
+                <path d="M120 75 C120 65 130 58 140 60 C145 52 158 50 168 56 C176 50 190 52 195 62 C205 60 215 68 215 78 C215 88 205 92 195 92 L130 92 C122 92 120 84 120 75 Z" fill="url(#cloudGrad)" />
+                <path d="M100 88 C100 80 110 74 120 76 C126 70 138 68 148 74 C155 70 166 72 170 80 C178 78 188 84 188 94 C188 102 178 106 170 106 L110 106 C102 106 100 98 100 88 Z" fill="url(#cloudGrad)" opacity="0.6" />
+
+                {/* Soaring Bird 1 (Crow Large) */}
+                <path d="M75 52 Q84 43 92 48 Q100 43 108 52 Q100 48 92 53 Q84 48 75 52 Z" fill="#2E3C14" />
+
+                {/* Soaring Bird 2 (Crow Medium) */}
+                <path d="M50 68 Q57 60 64 64 Q71 60 78 68 Q71 65 64 69 Q57 65 50 68 Z" fill="#2E3C14" opacity="0.9" />
+
+                {/* Soaring Bird 3 (Crow Small/Distant) */}
+                <path d="M35 44 Q40 37 45 40 Q50 37 55 44 Q50 41 45 45 Q40 41 35 44 Z" fill="#2E3C14" opacity="0.75" />
+              </svg>
             </div>
 
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="mb-6 sm:mb-8 pt-1 sm:pt-2 text-center">
+              <div className="mb-8 pt-2 sm:pt-3 text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black text-[#2D0345] tracking-tight">
                   Shop Our Products
                 </h2>
