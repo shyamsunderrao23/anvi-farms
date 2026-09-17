@@ -234,28 +234,24 @@ export default function App() {
           {/* 3. Hero Banner (Rotating banner) */}
           <HeroBanner />
 
-          {/* 4. Shop Our Products - Banner & Full Catalog */}
-          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 w-full">
-            {/* Shop Our Products Banner */}
-            <div 
-              className="relative w-full h-40 sm:h-52 md:h-64 rounded-2xl overflow-hidden mb-10 sm:mb-12 flex items-center justify-center border border-gray-100 shadow-xs"
-              style={{
-                backgroundImage: `url(${shopProductsBg})`,
-                backgroundSize: '100% 100%',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundColor: '#FFFFFF'
-              }}
-            >
-              <div className="text-center px-4 relative z-10">
+          {/* 4. Shop Our Products - Full Catalog */}
+          <section 
+            className="w-full py-12 sm:py-16 relative bg-white bg-no-repeat bg-top"
+            style={{
+              backgroundImage: `url(${shopProductsBg})`,
+              backgroundSize: '100% auto',
+              backgroundPosition: 'center top'
+            }}
+          >
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="mb-10 text-center">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-[#2D0345] tracking-tight">
                   Shop Our Products
                 </h2>
               </div>
-            </div>
 
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
+              {/* Products Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
               {ALL_PRODUCTS.map((p) => {
                 const variantIndex = selectedVariants[p.id] || 0
                 const currentVariant = p.variants[variantIndex] || p.variants[0]
@@ -423,6 +419,7 @@ export default function App() {
                   </div>
                 )
               })}
+            </div>
             </div>
           </section>
 
