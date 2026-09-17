@@ -18,7 +18,6 @@ export default function App() {
   const [currentView, setCurrentView] = useState('home') // 'home' | 'category' | 'product'
   const [activeCategory, setActiveCategory] = useState('ghee')
   const [selectedProductId, setSelectedProductId] = useState('ghee-1')
-  const [homeCategoryFilter, setHomeCategoryFilter] = useState('all')
 
   // Listen for hash changes (e.g. #category/ghee, #product/ghee-1, #products, #cart, etc.)
   useEffect(() => {
@@ -194,11 +193,6 @@ export default function App() {
     }
   }
 
-  // Filter products for the home "Shop Our Products" section
-  const displayedHomeProducts = homeCategoryFilter === 'all'
-    ? ALL_PRODUCTS
-    : ALL_PRODUCTS.filter((p) => p.categoryId === homeCategoryFilter)
-
   return (
     <div className="min-h-screen bg-white text-slate-800 flex flex-col font-sans">
       {/* 1. Header (Top announcement + Main nav + Subnav) */}
@@ -239,53 +233,17 @@ export default function App() {
           {/* 3. Hero Banner (Rotating banner) */}
           <HeroBanner />
 
-          {/* 4. Shop Our Products - Full 24 Products Catalog */}
+          {/* 4. Shop Our Products - Full Catalog */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-            <div className="mb-6 text-center">
+            <div className="mb-8 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-[34px] font-black text-[#2D0345] tracking-tight">
                 Shop Our Products
               </h2>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1 font-medium">
-                100% Raw, Vedic, Wood-Pressed & Ancestral Farm Harvest
-              </p>
-            </div>
-
-            {/* Category Filter Tabs Bar */}
-            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
-              <button
-                type="button"
-                onClick={() => setHomeCategoryFilter('all')}
-                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer ${
-                  homeCategoryFilter === 'all'
-                    ? 'bg-[#2D0345] text-white shadow-xs'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                All Products ({ALL_PRODUCTS.length})
-              </button>
-              {CATEGORIES.map((cat) => {
-                const count = ALL_PRODUCTS.filter((p) => p.categoryId === cat.id).length
-                const isActive = homeCategoryFilter === cat.id
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onClick={() => setHomeCategoryFilter(cat.id)}
-                    className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer ${
-                      isActive
-                        ? 'bg-[#2D0345] text-white shadow-xs'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    {cat.title} ({count})
-                  </button>
-                )
-              })}
             </div>
 
             {/* Products Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
-              {displayedHomeProducts.map((p) => {
+              {ALL_PRODUCTS.map((p) => {
                 const variantIndex = selectedVariants[p.id] || 0
                 const currentVariant = p.variants[variantIndex] || p.variants[0]
                 const isWishlisted = !!wishlist[p.id]
@@ -457,18 +415,6 @@ export default function App() {
                   </div>
                 )
               })}
-            </div>
-
-            {/* View All / Category Browser Action */}
-            <div className="mt-12 flex items-center justify-center">
-              <button
-                type="button"
-                onClick={() => navigateToCategory(homeCategoryFilter === 'all' ? 'ghee' : homeCategoryFilter)}
-                className="inline-flex items-center justify-center gap-3 min-w-[220px] px-8 py-3.5 rounded-full bg-[#2D0345] text-white font-medium text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-95 group cursor-pointer text-center"
-              >
-                <span>Browse Category Details</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform stroke-[2]" />
-              </button>
             </div>
           </section>
 
