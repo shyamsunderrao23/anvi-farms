@@ -10,7 +10,6 @@ import CartDrawer from './components/CartDrawer'
 import ProductsPage from './components/ProductsPage'
 import ProductDetailPage from './components/ProductDetailPage'
 import { ALL_PRODUCTS, CATEGORIES } from './data/products'
-import shopProductsBg from './assets/images/shop_products_bg.png'
 import { Sparkles, ShieldCheck, Heart, Star, ArrowRight, Truck, Award, Leaf, ChevronDown, Check, X, ShoppingBag, Eye } from 'lucide-react'
 
 export default function App() {
@@ -235,86 +234,67 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section className="w-full py-10 sm:py-12 relative bg-white overflow-hidden">
-            {/* Left Top Corner - Small Botanical Watercolor Leaves */}
-            <div className="absolute top-0 left-0 w-32 sm:w-44 md:w-56 h-32 sm:h-44 md:h-56 pointer-events-none z-0">
-              <svg viewBox="0 0 200 200" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#7F9634" stopOpacity="0.85" />
-                    <stop offset="100%" stopColor="#404D1A" stopOpacity="0.95" />
-                  </linearGradient>
-                  <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#9DBA44" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#5B6F23" stopOpacity="0.9" />
-                  </linearGradient>
-                  <linearGradient id="leafGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#BACF63" stopOpacity="0.75" />
-                    <stop offset="100%" stopColor="#7F9634" stopOpacity="0.85" />
-                  </linearGradient>
-                </defs>
-                {/* Main organic curved stem */}
-                <path d="M-10 -10 C20 40 50 70 110 100" stroke="#5B6F23" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
-                <path d="M40 55 C65 85 95 110 135 125" stroke="#5B6F23" strokeWidth="1.8" strokeLinecap="round" opacity="0.6" />
-                <path d="M-5 25 C15 65 35 110 50 155" stroke="#5B6F23" strokeWidth="1.8" strokeLinecap="round" opacity="0.5" />
-                
-                {/* Leaf 1 (Top left) */}
-                <path d="M5 5 C25 -5 55 5 65 25 C65 45 40 50 15 35 Z" fill="url(#leafGrad1)" />
-                <path d="M5 5 Q35 20 65 25" stroke="#3A4616" strokeWidth="1" opacity="0.4" />
-                
-                {/* Leaf 2 (Upper mid) */}
-                <path d="M25 35 C50 25 80 40 90 65 C85 85 60 85 35 65 Z" fill="url(#leafGrad2)" />
-                <path d="M25 35 Q60 55 90 65" stroke="#3A4616" strokeWidth="1" opacity="0.4" />
+          <section className="w-full py-8 sm:py-10 relative bg-white overflow-hidden">
+            {/* Left Top Corner - Small Botanical Leaves (100% Transparent Vector) */}
+            <div className="absolute top-0 left-0 w-24 sm:w-32 md:w-40 pointer-events-none z-0">
+              <svg viewBox="0 0 160 160" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Branch Stems */}
+                <path d="M-5 -5 Q30 35 75 60" stroke="#687B2E" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+                <path d="M25 30 Q50 65 70 100" stroke="#687B2E" strokeWidth="1.6" strokeLinecap="round" opacity="0.7" />
+                <path d="M50 48 Q85 65 115 75" stroke="#687B2E" strokeWidth="1.4" strokeLinecap="round" opacity="0.6" />
 
-                {/* Leaf 3 (Branch tip) */}
-                <path d="M60 70 C85 60 120 75 130 98 C120 115 95 115 70 95 Z" fill="url(#leafGrad1)" />
-                <path d="M60 70 Q95 85 130 98" stroke="#3A4616" strokeWidth="1" opacity="0.4" />
+                {/* Main Cluster Leaves */}
+                <path d="M5 2 C18 -4 35 2 40 18 C38 32 24 35 12 24 Z" fill="#758A32" opacity="0.9" />
+                <path d="M18 20 C32 12 48 20 54 36 C50 48 36 50 24 38 Z" fill="#889E3B" opacity="0.9" />
+                <path d="M42 38 C58 28 78 38 82 56 C76 68 60 68 48 54 Z" fill="#758A32" opacity="0.85" />
+                <path d="M72 58 C88 50 104 58 108 72 C102 82 88 82 78 70 Z" fill="#9CB249" opacity="0.85" />
 
-                {/* Leaf 4 (Sub branch) */}
-                <path d="M85 105 C110 100 145 115 155 135 C140 150 115 145 95 125 Z" fill="url(#leafGrad3)" />
+                {/* Lower Drooping Leaves */}
+                <path d="M22 45 C34 50 40 68 34 82 C24 86 16 75 16 60 Z" fill="#889E3B" opacity="0.85" />
+                <path d="M30 75 C42 80 48 98 42 112 C32 116 24 105 24 90 Z" fill="#758A32" opacity="0.8" />
+                <path d="M40 105 C50 110 54 125 48 135 C40 138 34 130 34 118 Z" fill="#9CB249" opacity="0.75" />
 
-                {/* Small floating leaves */}
-                <path d="M20 95 C35 90 50 100 55 115 C48 125 35 125 22 110 Z" fill="url(#leafGrad2)" />
-                <path d="M5 130 C18 125 30 135 32 148 C25 155 15 152 6 142 Z" fill="url(#leafGrad3)" />
-                <path d="M70 140 C80 135 92 142 95 152 C88 160 78 158 70 150 Z" fill="url(#leafGrad2)" opacity="0.8" />
+                {/* Side Small Sprout Leaves */}
+                <path d="M78 68 C90 70 98 82 95 94 C86 98 78 92 76 80 Z" fill="#889E3B" opacity="0.8" />
+                <path d="M58 88 C70 92 76 104 72 115 C64 118 56 112 56 102 Z" fill="#A8BF53" opacity="0.75" />
+                <path d="M8 82 C16 88 20 100 16 110 C10 112 4 106 5 95 Z" fill="#A8BF53" opacity="0.7" />
               </svg>
             </div>
 
-            {/* Right Top Corner - Warm Sun with Soaring Birds/Crows */}
-            <div className="absolute top-0 right-0 w-36 sm:w-48 md:w-60 h-32 sm:h-44 md:h-52 pointer-events-none z-0">
-              <svg viewBox="0 0 220 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="sunGlow" cx="65%" cy="35%" r="60%">
-                    <stop offset="0%" stopColor="#FDE68A" />
-                    <stop offset="50%" stopColor="#F59E0B" />
-                    <stop offset="100%" stopColor="#D97706" />
-                  </radialGradient>
-                  <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#FFFDF7" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="#FEF3C7" stopOpacity="0.75" />
-                  </linearGradient>
-                </defs>
+            {/* Right Top Corner - Golden Sun, Cloud & Birds (100% Transparent Vector) */}
+            <div className="absolute top-0 right-0 w-28 sm:w-36 md:w-48 pointer-events-none z-0">
+              <svg viewBox="0 0 240 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Golden Circular Sun */}
+                <circle cx="150" cy="42" r="22" fill="#EFA11D" />
 
-                {/* Sun Circle */}
-                <circle cx="170" cy="50" r="32" fill="url(#sunGlow)" opacity="0.9" />
+                {/* Soft Organic Watercolor Cloud Layers */}
+                <path 
+                  d="M10 92 C30 82 50 82 65 88 C72 76 90 70 106 76 C115 62 135 56 150 64 C162 58 180 62 188 74 C198 70 215 76 218 88 C226 95 238 102 230 112 C200 110 160 100 130 94 C90 88 50 88 10 92 Z" 
+                  fill="#F8F3DC" 
+                  opacity="0.95"
+                />
+                <path 
+                  d="M30 98 C60 90 90 92 120 95 C150 98 180 105 210 116 C190 120 170 116 150 112 C100 102 60 100 30 98 Z" 
+                  fill="#F2ECCE" 
+                  opacity="0.75"
+                />
 
-                {/* Soft Watercolor Clouds under/over sun */}
-                <path d="M120 75 C120 65 130 58 140 60 C145 52 158 50 168 56 C176 50 190 52 195 62 C205 60 215 68 215 78 C215 88 205 92 195 92 L130 92 C122 92 120 84 120 75 Z" fill="url(#cloudGrad)" />
-                <path d="M100 88 C100 80 110 74 120 76 C126 70 138 68 148 74 C155 70 166 72 170 80 C178 78 188 84 188 94 C188 102 178 106 170 106 L110 106 C102 106 100 98 100 88 Z" fill="url(#cloudGrad)" opacity="0.6" />
+                {/* Flying Bird 1 (Upper) */}
+                <path 
+                  d="M118 48 C123 44 128 44 133 49 C138 43 145 44 150 51 C144 48 138 49 133 53 C129 49 123 47 118 48 Z" 
+                  fill="#1A1816" 
+                />
 
-                {/* Soaring Bird 1 (Crow Large) */}
-                <path d="M75 52 Q84 43 92 48 Q100 43 108 52 Q100 48 92 53 Q84 48 75 52 Z" fill="#2E3C14" />
-
-                {/* Soaring Bird 2 (Crow Medium) */}
-                <path d="M50 68 Q57 60 64 64 Q71 60 78 68 Q71 65 64 69 Q57 65 50 68 Z" fill="#2E3C14" opacity="0.9" />
-
-                {/* Soaring Bird 3 (Crow Small/Distant) */}
-                <path d="M35 44 Q40 37 45 40 Q50 37 55 44 Q50 41 45 45 Q40 41 35 44 Z" fill="#2E3C14" opacity="0.75" />
+                {/* Flying Bird 2 (Lower) */}
+                <path 
+                  d="M98 62 C103 58 108 58 113 63 C117 57 124 58 128 65 C122 62 117 63 113 67 C109 63 103 61 98 62 Z" 
+                  fill="#1A1816" 
+                />
               </svg>
             </div>
 
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="mb-8 pt-2 sm:pt-3 text-center">
+              <div className="mb-8 pt-1 text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black text-[#2D0345] tracking-tight">
                   Shop Our Products
                 </h2>
