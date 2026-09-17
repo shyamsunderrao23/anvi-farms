@@ -10,7 +10,6 @@ import CartDrawer from './components/CartDrawer'
 import ProductsPage from './components/ProductsPage'
 import ProductDetailPage from './components/ProductDetailPage'
 import { ALL_PRODUCTS, CATEGORIES } from './data/products'
-import shopProductsBg from './assets/images/shop_products_bg.png'
 import { Sparkles, ShieldCheck, Heart, Star, ArrowRight, Truck, Award, Leaf, ChevronDown, Check, X, ShoppingBag, Eye } from 'lucide-react'
 
 export default function App() {
@@ -235,26 +234,15 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section className="w-full relative bg-white overflow-hidden">
-            {/* Full-width Botanical Header Background from assets/images/shop_products_bg.png */}
-            <div 
-              className="w-full pt-10 sm:pt-14 pb-8 sm:pb-12 bg-no-repeat bg-top"
-              style={{
-                backgroundImage: `url(${shopProductsBg})`,
-                backgroundSize: '100% auto',
-                backgroundPosition: 'center top'
-              }}
-            >
-              <div className="max-w-7xl mx-auto px-4 text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
-                  Shop Our Products
-                </h2>
-              </div>
+          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
+                Shop Our Products
+              </h2>
             </div>
 
             {/* Products Grid */}
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
               {ALL_PRODUCTS.map((p) => {
                 const variantIndex = selectedVariants[p.id] || 0
                 const currentVariant = p.variants[variantIndex] || p.variants[0]
@@ -422,7 +410,6 @@ export default function App() {
                   </div>
                 )
               })}
-            </div>
             </div>
           </section>
 
