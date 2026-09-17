@@ -9,15 +9,8 @@ import Footer from './components/Footer'
 import CartDrawer from './components/CartDrawer'
 import ProductsPage from './components/ProductsPage'
 import ProductDetailPage from './components/ProductDetailPage'
-import { Sparkles, ShieldCheck, Heart, Star, ArrowRight, Truck, Award, Leaf, ChevronDown, Check, X, ShoppingBag } from 'lucide-react'
-import desiGheeImg from './assets/images/desi_ghee.jpg'
-import honeyImg from './assets/images/honey.jpg'
-import spicesImg from './assets/images/spices.jpg'
-import amlaprashImg from './assets/images/amlaprash.jpg'
-import coldPressedOilImg from './assets/images/cold_pressed_oil.jpg'
-import naturalSweetenerImg from './assets/images/natural_sweetener.jpg'
-import proteinBarImg from './assets/images/protein_bar.jpg'
-import chickenPickleImg from './assets/images/chicken_pickle.jpg'
+import { ALL_PRODUCTS, CATEGORIES } from './data/products'
+import { Sparkles, ShieldCheck, Heart, Star, ArrowRight, Truck, Award, Leaf, ChevronDown, Check, X, ShoppingBag, Eye } from 'lucide-react'
 
 export default function App() {
   const [cartItems, setCartItems] = useState([])
@@ -25,6 +18,7 @@ export default function App() {
   const [currentView, setCurrentView] = useState('home') // 'home' | 'category' | 'product'
   const [activeCategory, setActiveCategory] = useState('ghee')
   const [selectedProductId, setSelectedProductId] = useState('ghee-1')
+  const [homeCategoryFilter, setHomeCategoryFilter] = useState('all')
 
   // Listen for hash changes (e.g. #category/ghee, #product/ghee-1, #products, #cart, etc.)
   useEffect(() => {
@@ -200,68 +194,10 @@ export default function App() {
     }
   }
 
-  const featuredProducts = [
-    {
-      id: 'ghee-1',
-      tag: 'BEST SELLER',
-      tagBg: 'bg-[#2D0345]',
-      title: 'Desi Gir Cow Cultured A2 Ghee',
-      subtitle: 'Bilona-made | Certified Vedic A2',
-      image: desiGheeImg,
-      rating: '4.9',
-      reviews: '2.4k+ Reviews',
-      variants: [
-        { label: '1000 ml (Glass Jar)', price: 3595 },
-        { label: '500 ml (Glass Jar)', price: 1850 },
-        { label: '250 ml (Glass Jar)', price: 950 }
-      ]
-    },
-    {
-      id: 'honey-1',
-      tag: 'PURE & RAW',
-      tagBg: 'bg-[#D97706]',
-      title: 'Raw Wild Forest Honey',
-      subtitle: 'Unpasteurized | NMR 100% Pure',
-      image: honeyImg,
-      rating: '4.9',
-      reviews: '1.6k+ Reviews',
-      variants: [
-        { label: '500 g', price: 650 },
-        { label: '1 kg', price: 1200 },
-        { label: '250 g', price: 350 }
-      ]
-    },
-    {
-      id: 'super-foods-1',
-      tag: 'IMMUNITY',
-      tagBg: 'bg-[#404D1A]',
-      title: 'Amlaprash (Herbal Chyawanprash)',
-      subtitle: '40+ herbs | Wild Forest Amla',
-      image: amlaprashImg,
-      rating: '4.9',
-      reviews: '1.8k+ Reviews',
-      variants: [
-        { label: '300 g', price: 675 },
-        { label: '500 g', price: 1050 },
-        { label: '1 kg', price: 1950 }
-      ]
-    },
-    {
-      id: 'cold-pressed-oils-1',
-      tag: 'COLD PRESSED',
-      tagBg: 'bg-[#B45309]',
-      title: 'Cold Pressed Groundnut Oil',
-      subtitle: 'Wood Pressed (Kolhu) | Unrefined',
-      image: coldPressedOilImg,
-      rating: '4.8',
-      reviews: '980+ Reviews',
-      variants: [
-        { label: '1 Litre (Tin)', price: 440 },
-        { label: '5 Litre (Tin)', price: 2100 },
-        { label: '500 ml (Bottle)', price: 240 }
-      ]
-    }
-  ]
+  // Filter products for the home "Shop Our Products" section
+  const displayedHomeProducts = homeCategoryFilter === 'all'
+    ? ALL_PRODUCTS
+    : ALL_PRODUCTS.filter((p) => p.categoryId === homeCategoryFilter)
 
   return (
     <div className="min-h-screen bg-white text-slate-800 flex flex-col font-sans">
@@ -303,17 +239,53 @@ export default function App() {
           {/* 3. Hero Banner (Rotating banner) */}
           <HeroBanner />
 
-          {/* 4. Featured Farm Staples */}
+          {/* 4. Shop Our Products - Full 24 Products Catalog */}
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-            <div className="mb-8 text-center">
+            <div className="mb-6 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-[34px] font-black text-[#2D0345] tracking-tight">
                 Shop Our Products
               </h2>
+              <p className="text-xs sm:text-sm text-gray-500 mt-1 font-medium">
+                100% Raw, Vedic, Wood-Pressed & Ancestral Farm Harvest
+              </p>
             </div>
 
-            {/* 4 Products Grid Exactly Matching the Two Brothers Reference Image */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProducts.map((p) => {
+            {/* Category Filter Tabs Bar */}
+            <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+              <button
+                type="button"
+                onClick={() => setHomeCategoryFilter('all')}
+                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer ${
+                  homeCategoryFilter === 'all'
+                    ? 'bg-[#2D0345] text-white shadow-xs'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                All Products ({ALL_PRODUCTS.length})
+              </button>
+              {CATEGORIES.map((cat) => {
+                const count = ALL_PRODUCTS.filter((p) => p.categoryId === cat.id).length
+                const isActive = homeCategoryFilter === cat.id
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setHomeCategoryFilter(cat.id)}
+                    className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer ${
+                      isActive
+                        ? 'bg-[#2D0345] text-white shadow-xs'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {cat.title} ({count})
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+              {displayedHomeProducts.map((p) => {
                 const variantIndex = selectedVariants[p.id] || 0
                 const currentVariant = p.variants[variantIndex] || p.variants[0]
                 const isWishlisted = !!wishlist[p.id]
@@ -324,10 +296,10 @@ export default function App() {
                     className={`flex flex-col justify-between group relative ${openDropdownId === p.id ? 'z-30' : 'z-10'}`}
                   >
                     {/* Top Image Container */}
-                    <div className="relative h-64 sm:h-72 w-full overflow-hidden mb-3">
+                    <div className="relative h-64 sm:h-72 w-full overflow-hidden mb-3 bg-gray-50">
                       {/* Top-Right Corner Tab Badge (Text | Heart) */}
-                      <div className={`absolute top-0 right-0 z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-bl-xl text-white text-xs font-semibold shadow-xs ${p.tagBg}`}>
-                        <span className="leading-none">{p.tag}</span>
+                      <div className={`absolute top-0 right-0 z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-bl-xl text-white text-xs font-semibold shadow-xs ${p.tagBg || 'bg-[#2D0345]'}`}>
+                        <span className="leading-none">{p.tag || 'NATURAL'}</span>
                         <span className="text-white/70 font-normal">|</span>
                         <button
                           type="button"
@@ -342,6 +314,16 @@ export default function App() {
                         </button>
                       </div>
 
+                      {/* Quick View Button on Hover */}
+                      <button
+                        type="button"
+                        onClick={() => navigateToProduct(p.id)}
+                        className="absolute bottom-2 left-2 z-10 bg-white/90 backdrop-blur-xs hover:bg-white text-[#2D0345] text-[11px] font-bold px-2.5 py-1 rounded-none shadow-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 cursor-pointer"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Quick View</span>
+                      </button>
+
                       {/* Product Photography */}
                       <img 
                         src={p.image} 
@@ -351,29 +333,36 @@ export default function App() {
                       />
                     </div>
 
-                    {/* Open Details (No card box) */}
+                    {/* Details */}
                     <div className="flex-1 flex flex-col justify-between space-y-3 px-0.5">
                       <div className="space-y-1.5">
                         {/* Title & Price Header */}
                         <div className="flex items-start justify-between gap-2">
                           <h3 
                             onClick={() => navigateToProduct(p.id)}
-                            className="font-medium text-sm sm:text-base text-gray-900 leading-snug cursor-pointer hover:text-[#2D0345] transition-colors"
+                            className="font-medium text-sm sm:text-base text-gray-900 leading-snug cursor-pointer hover:text-[#2D0345] transition-colors line-clamp-2"
                           >
                             {p.title}
                           </h3>
-                          <span className="font-medium text-sm sm:text-base text-gray-900 shrink-0">
-                            ₹{currentVariant.price.toLocaleString('en-IN')}
-                          </span>
+                          <div className="text-right shrink-0">
+                            <span className="font-medium text-sm sm:text-base text-gray-900 block">
+                              ₹{currentVariant.price.toLocaleString('en-IN')}
+                            </span>
+                            {currentVariant.originalPrice && (
+                              <span className="text-[11px] text-gray-400 line-through">
+                                ₹{currentVariant.originalPrice.toLocaleString('en-IN')}
+                              </span>
+                            )}
+                          </div>
                         </div>
 
                         {/* Subtitle / Key Claim */}
-                        <p className="text-xs text-gray-500 font-medium leading-normal">
+                        <p className="text-xs text-gray-500 font-normal leading-normal line-clamp-2">
                           {p.subtitle}
                         </p>
 
                         {/* Rating & Reviews */}
-                        <div className="flex items-center gap-1 text-xs text-gray-800 font-semibold pt-0.5">
+                        <div className="flex items-center gap-1 text-xs text-gray-800 font-medium pt-0.5">
                           <div className="flex items-center gap-0.5 text-amber-400">
                             <Star className="w-3 h-3 fill-amber-400 stroke-none" />
                             <Star className="w-3 h-3 fill-amber-400 stroke-none" />
@@ -381,9 +370,9 @@ export default function App() {
                             <Star className="w-3 h-3 fill-amber-400 stroke-none" />
                             <Star className="w-3 h-3 fill-amber-400 stroke-none" />
                           </div>
-                          <span className="ml-1 font-bold text-gray-900">{p.rating}</span>
+                          <span className="ml-1 font-medium text-gray-900">{p.rating}</span>
                           <span className="text-gray-400">|</span>
-                          <span className="text-gray-600">{p.reviews}</span>
+                          <span className="text-gray-600 font-normal">{p.reviews}</span>
                         </div>
                       </div>
 
@@ -397,7 +386,7 @@ export default function App() {
                               e.stopPropagation()
                               setOpenDropdownId(openDropdownId === p.id ? null : p.id)
                             }}
-                            className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-semibold text-gray-800 bg-white border border-gray-300 rounded-none shadow-2xs hover:border-gray-400 focus:outline-none transition-colors cursor-pointer"
+                            className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-medium text-gray-800 bg-white border border-gray-300 rounded-none shadow-2xs hover:border-gray-400 focus:outline-none transition-colors cursor-pointer"
                           >
                             <span className="truncate">{currentVariant.label}</span>
                             <ChevronDown 
@@ -426,13 +415,13 @@ export default function App() {
                                     }}
                                     className={`w-full flex items-center justify-between px-3 py-2 text-xs text-left cursor-pointer transition-colors ${
                                       isSelected 
-                                        ? 'bg-purple-50 text-[#2D0345] font-bold' 
+                                        ? 'bg-purple-50 text-[#2D0345] font-medium' 
                                         : 'text-gray-700 hover:bg-gray-50'
                                     }`}
                                   >
                                     <span className="truncate">{variant.label}</span>
                                     <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                                      <span className="font-bold">
+                                      <span className="font-medium">
                                         ₹{variant.price.toLocaleString('en-IN')}
                                       </span>
                                       {isSelected && <Check className="w-3.5 h-3.5 text-[#2D0345]" />}
@@ -453,10 +442,12 @@ export default function App() {
                               title: p.title,
                               weight: currentVariant.label,
                               price: currentVariant.price,
-                              image: p.image
+                              originalPrice: currentVariant.originalPrice,
+                              image: p.image,
+                              category: p.categoryName
                             })
                           }}
-                          className="w-full py-3 px-4 bg-[#2D0345] hover:bg-[#3d085c] active:bg-[#200231] text-white text-xs sm:text-sm font-black tracking-wider uppercase rounded-none transition-all shadow-xs hover:shadow-md cursor-pointer flex items-center justify-center gap-2"
+                          className="w-full py-3 px-4 bg-[#2D0345] hover:bg-[#3d085c] active:bg-[#200231] text-white text-xs sm:text-sm font-medium tracking-wider uppercase rounded-none transition-all shadow-xs hover:shadow-md cursor-pointer flex items-center justify-center gap-2"
                         >
                           <ShoppingBag className="w-4 h-4" />
                           <span>ADD TO CART</span>
@@ -468,14 +459,14 @@ export default function App() {
               })}
             </div>
 
-            {/* View All Button Centered Below the Grid */}
-            <div className="mt-10 flex items-center justify-center">
+            {/* View All / Category Browser Action */}
+            <div className="mt-12 flex items-center justify-center">
               <button
                 type="button"
-                onClick={() => navigateToCategory('ghee')}
-                className="inline-flex items-center justify-center gap-3 min-w-[220px] px-8 py-3.5 rounded-full bg-[#2D0345] text-white font-bold text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-95 group cursor-pointer text-center"
+                onClick={() => navigateToCategory(homeCategoryFilter === 'all' ? 'ghee' : homeCategoryFilter)}
+                className="inline-flex items-center justify-center gap-3 min-w-[220px] px-8 py-3.5 rounded-full bg-[#2D0345] text-white font-medium text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-95 group cursor-pointer text-center"
               >
-                <span>Explore Farm Categories</span>
+                <span>Browse Category Details</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform stroke-[2]" />
               </button>
             </div>

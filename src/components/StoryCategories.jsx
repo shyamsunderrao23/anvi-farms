@@ -37,7 +37,7 @@ export default function StoryCategories({ onSelectCategory, onNavigateCategory }
     },
     {
       id: 'natural-sweeteners',
-      label: 'Natural Sweeteners',
+      label: 'Sweeteners',
       image: naturalSweetenerImg
     },
     {
