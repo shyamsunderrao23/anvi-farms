@@ -235,35 +235,25 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section className="w-full py-12 sm:py-16 relative bg-white overflow-hidden">
-            {/* Left Edge Decorative Leaf Accent (Only in outer margin on wide screens, never overlaps cards) */}
+          <section className="w-full relative bg-white overflow-hidden">
+            {/* Full-width Botanical Header Background from assets/images/shop_products_bg.png */}
             <div 
-              className="hidden 2xl:block absolute top-12 -left-12 w-48 h-96 pointer-events-none z-0 opacity-40 bg-no-repeat"
+              className="w-full pt-10 sm:pt-14 pb-8 sm:pb-12 bg-no-repeat bg-top"
               style={{
                 backgroundImage: `url(${shopProductsBg})`,
-                backgroundPosition: 'left top',
-                backgroundSize: 'contain'
+                backgroundSize: '100% auto',
+                backgroundPosition: 'center top'
               }}
-            />
-
-            {/* Right Edge Decorative Accent (Only in outer margin on wide screens, never overlaps cards) */}
-            <div 
-              className="hidden 2xl:block absolute top-12 -right-12 w-48 h-96 pointer-events-none z-0 opacity-40 bg-no-repeat"
-              style={{
-                backgroundImage: `url(${shopProductsBg})`,
-                backgroundPosition: 'right top',
-                backgroundSize: 'contain'
-              }}
-            />
-
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="mb-10 pt-3 sm:pt-6 text-center">
+            >
+              <div className="max-w-7xl mx-auto px-4 text-center">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
                   Shop Our Products
                 </h2>
               </div>
+            </div>
 
-              {/* Products Grid */}
+            {/* Products Grid */}
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
               {ALL_PRODUCTS.map((p) => {
                 const variantIndex = selectedVariants[p.id] || 0
