@@ -55,8 +55,8 @@ export default function StoryCategories({ onSelectCategory, onNavigateCategory }
   return (
     <div className="bg-white border-b border-gray-200/80 py-5 sm:py-7 shadow-2xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Horizontal flex / scroll for circular product stories with increased size */}
-        <div className="flex items-center justify-start lg:justify-center gap-6 sm:gap-8 md:gap-9 overflow-x-auto no-scrollbar py-1">
+        {/* Horizontal flex / scroll for circular product stories with top baseline alignment */}
+        <div className="flex items-start justify-start lg:justify-center gap-5 sm:gap-7 md:gap-8 overflow-x-auto no-scrollbar py-1">
           {products.map((item) => (
             <a
               key={item.id}
@@ -69,10 +69,10 @@ export default function StoryCategories({ onSelectCategory, onNavigateCategory }
                   onSelectCategory(item.id)
                 }
               }}
-              className="flex flex-col items-center cursor-pointer shrink-0"
+              className="flex flex-col items-center cursor-pointer shrink-0 w-22 sm:w-26 md:w-28 group"
             >
               {/* Circular Product Story Frame */}
-              <div className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-amber-400 via-[#2D0345] to-amber-300">
+              <div className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-amber-400 via-[#2D0345] to-amber-300 group-hover:scale-105 transition-transform duration-200">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-26 md:h-26 lg:w-28 lg:h-28 rounded-full bg-white p-[2px] overflow-hidden flex items-center justify-center shadow-xs">
                   <img
                     src={item.image}
@@ -82,8 +82,8 @@ export default function StoryCategories({ onSelectCategory, onNavigateCategory }
                 </div>
               </div>
 
-              {/* Product Label */}
-              <span className="mt-2.5 text-xs sm:text-sm font-bold text-gray-800 tracking-tight text-center max-w-[85px] sm:max-w-[105px] leading-tight">
+              {/* Product Label aligned to top of text container */}
+              <span className="mt-2.5 text-xs sm:text-sm font-bold text-gray-800 tracking-tight text-center leading-snug w-full min-h-[36px] flex items-start justify-center group-hover:text-[#2D0345] transition-colors">
                 {item.label}
               </span>
             </a>
