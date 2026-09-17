@@ -445,11 +445,6 @@ export default function ProductDetailPage({
                 <span className="text-2xl sm:text-3xl font-medium text-gray-900">
                   ₹{currentVariant.price?.toLocaleString('en-IN')}
                 </span>
-                {currentVariant.originalPrice && (
-                  <span className="text-base text-gray-400 line-through">
-                    ₹{currentVariant.originalPrice?.toLocaleString('en-IN')}
-                  </span>
-                )}
               </div>
               <p className="text-xs text-gray-500 mt-0.5 font-normal">
                 MRP (Incl. of all taxes)
@@ -983,11 +978,6 @@ export default function ProductDetailPage({
                           <span className="font-medium text-sm sm:text-base text-gray-900 block">
                             ₹{curVariant.price.toLocaleString('en-IN')}
                           </span>
-                          {curVariant.originalPrice && (
-                            <span className="text-[11px] text-gray-400 line-through">
-                              ₹{curVariant.originalPrice.toLocaleString('en-IN')}
-                            </span>
-                          )}
                         </div>
                       </div>
 
