@@ -235,17 +235,21 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section 
-            className="w-full py-12 sm:py-16 relative bg-white bg-no-repeat bg-top"
-            style={{
-              backgroundImage: `url(${shopProductsBg})`,
-              backgroundSize: '100% auto',
-              backgroundPosition: 'center top'
-            }}
-          >
+          <section className="w-full py-12 sm:py-16 relative bg-white overflow-hidden">
+            {/* Background Illustration Banner (Natural aspect ratio, pinned to top, no over-stretching) */}
+            <div className="absolute top-0 left-0 right-0 w-full h-56 sm:h-72 md:h-80 pointer-events-none z-0 overflow-hidden">
+              <img 
+                src={shopProductsBg} 
+                alt="" 
+                className="w-full h-full object-cover object-top"
+              />
+              {/* Soft bottom fade gradient into pure white */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white" />
+            </div>
+
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="mb-10 text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-[#2D0345] tracking-tight">
+              <div className="mb-10 pt-4 sm:pt-6 text-center">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
                   Shop Our Products
                 </h2>
               </div>
