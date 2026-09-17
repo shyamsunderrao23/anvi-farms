@@ -10,6 +10,7 @@ import CartDrawer from './components/CartDrawer'
 import ProductsPage from './components/ProductsPage'
 import ProductDetailPage from './components/ProductDetailPage'
 import { ALL_PRODUCTS, CATEGORIES } from './data/products'
+import shopProductsBg from './assets/images/shop_products_bg.png'
 import { Sparkles, ShieldCheck, Heart, Star, ArrowRight, Truck, Award, Leaf, ChevronDown, Check, X, ShoppingBag, Eye } from 'lucide-react'
 
 export default function App() {
@@ -233,12 +234,24 @@ export default function App() {
           {/* 3. Hero Banner (Rotating banner) */}
           <HeroBanner />
 
-          {/* 4. Shop Our Products - Full Catalog */}
-          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-            <div className="mb-10 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
-                Shop Our Products
-              </h2>
+          {/* 4. Shop Our Products - Banner & Full Catalog */}
+          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 w-full">
+            {/* Shop Our Products Banner */}
+            <div 
+              className="relative w-full h-40 sm:h-52 md:h-64 rounded-2xl overflow-hidden mb-10 sm:mb-12 flex items-center justify-center border border-gray-100 shadow-xs"
+              style={{
+                backgroundImage: `url(${shopProductsBg})`,
+                backgroundSize: '100% 100%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: '#FFFFFF'
+              }}
+            >
+              <div className="text-center px-4 relative z-10">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-[#2D0345] tracking-tight">
+                  Shop Our Products
+                </h2>
+              </div>
             </div>
 
             {/* Products Grid */}
