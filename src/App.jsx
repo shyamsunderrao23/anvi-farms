@@ -235,15 +235,29 @@ export default function App() {
           <HeroBanner />
 
           {/* 4. Shop Our Products - Full Catalog */}
-          <section 
-            className="w-full py-14 sm:py-16 relative bg-cover bg-no-repeat bg-top"
-            style={{
-              backgroundImage: `url(${shopProductsBg})`,
-              backgroundColor: '#FFFFFF'
-            }}
-          >
+          <section className="w-full py-12 sm:py-16 relative bg-white overflow-hidden">
+            {/* Left Edge Decorative Leaf Accent (Only in outer margin on wide screens, never overlaps cards) */}
+            <div 
+              className="hidden 2xl:block absolute top-12 -left-12 w-48 h-96 pointer-events-none z-0 opacity-40 bg-no-repeat"
+              style={{
+                backgroundImage: `url(${shopProductsBg})`,
+                backgroundPosition: 'left top',
+                backgroundSize: 'contain'
+              }}
+            />
+
+            {/* Right Edge Decorative Accent (Only in outer margin on wide screens, never overlaps cards) */}
+            <div 
+              className="hidden 2xl:block absolute top-12 -right-12 w-48 h-96 pointer-events-none z-0 opacity-40 bg-no-repeat"
+              style={{
+                backgroundImage: `url(${shopProductsBg})`,
+                backgroundPosition: 'right top',
+                backgroundSize: 'contain'
+              }}
+            />
+
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="mb-10 text-center">
+              <div className="mb-10 pt-3 sm:pt-6 text-center">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-black text-[#2D0345] tracking-tight">
                   Shop Our Products
                 </h2>
