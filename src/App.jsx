@@ -293,6 +293,50 @@ export default function App() {
               </svg>
             </div>
 
+            {/* Left Edge Leaf - Between Rows 2 & 3 */}
+            <div className="absolute top-[32%] left-0 w-16 sm:w-20 md:w-28 pointer-events-none z-0 opacity-80">
+              <svg viewBox="0 0 120 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 70 Q35 60 70 30" stroke="#687B2E" strokeWidth="1.6" strokeLinecap="round" opacity="0.7" />
+                <path d="M12 62 C24 50 42 54 44 68 C38 78 24 78 14 70 Z" fill="#758A32" opacity="0.85" />
+                <path d="M32 48 C46 36 62 42 66 55 C58 66 44 64 34 54 Z" fill="#889E3B" opacity="0.85" />
+                <path d="M52 34 C64 22 80 28 84 42 C76 52 64 50 54 40 Z" fill="#9CB249" opacity="0.8" />
+                <path d="M22 80 C32 88 36 100 30 110 C22 112 16 104 14 92 Z" fill="#889E3B" opacity="0.75" />
+              </svg>
+            </div>
+
+            {/* Right Edge Leaf - Between Rows 2 & 3 */}
+            <div className="absolute top-[32%] right-0 w-16 sm:w-20 md:w-28 pointer-events-none z-0 opacity-80">
+              <svg viewBox="0 0 120 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M125 70 Q85 60 50 30" stroke="#687B2E" strokeWidth="1.6" strokeLinecap="round" opacity="0.7" />
+                <path d="M108 62 C96 50 78 54 76 68 C82 78 96 78 106 70 Z" fill="#758A32" opacity="0.85" />
+                <path d="M88 48 C74 36 58 42 54 55 C62 66 76 64 86 54 Z" fill="#889E3B" opacity="0.85" />
+                <path d="M68 34 C56 22 40 28 36 42 C44 52 56 50 66 40 Z" fill="#9CB249" opacity="0.8" />
+                <path d="M98 80 C88 88 84 100 90 110 C98 112 104 104 106 92 Z" fill="#889E3B" opacity="0.75" />
+              </svg>
+            </div>
+
+            {/* Left Edge Leaf - Between Rows 4 & 5 */}
+            <div className="absolute top-[65%] left-0 w-16 sm:w-20 md:w-28 pointer-events-none z-0 opacity-80">
+              <svg viewBox="0 0 120 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 70 Q35 60 70 30" stroke="#687B2E" strokeWidth="1.6" strokeLinecap="round" opacity="0.7" />
+                <path d="M12 62 C24 50 42 54 44 68 C38 78 24 78 14 70 Z" fill="#758A32" opacity="0.85" />
+                <path d="M32 48 C46 36 62 42 66 55 C58 66 44 64 34 54 Z" fill="#889E3B" opacity="0.85" />
+                <path d="M52 34 C64 22 80 28 84 42 C76 52 64 50 54 40 Z" fill="#9CB249" opacity="0.8" />
+                <path d="M22 80 C32 88 36 100 30 110 C22 112 16 104 14 92 Z" fill="#889E3B" opacity="0.75" />
+              </svg>
+            </div>
+
+            {/* Right Edge Leaf - Between Rows 4 & 5 */}
+            <div className="absolute top-[65%] right-0 w-16 sm:w-20 md:w-28 pointer-events-none z-0 opacity-80">
+              <svg viewBox="0 0 120 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M125 70 Q85 60 50 30" stroke="#687B2E" strokeWidth="1.6" strokeLinecap="round" opacity="0.7" />
+                <path d="M108 62 C96 50 78 54 76 68 C82 78 96 78 106 70 Z" fill="#758A32" opacity="0.85" />
+                <path d="M88 48 C74 36 58 42 54 55 C62 66 76 64 86 54 Z" fill="#889E3B" opacity="0.85" />
+                <path d="M68 34 C56 22 40 28 36 42 C44 52 56 50 66 40 Z" fill="#9CB249" opacity="0.8" />
+                <path d="M98 80 C88 88 84 100 90 110 C98 112 104 104 106 92 Z" fill="#889E3B" opacity="0.75" />
+              </svg>
+            </div>
+
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="mb-8 pt-1 text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-black text-[#2D0345] tracking-tight">
