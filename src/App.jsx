@@ -293,6 +293,32 @@ export default function App() {
               </svg>
             </div>
 
+            {/* Left Edge Cloud - Big Soft Watercolor Cloud beside 2nd Row (~20% height) */}
+            <div className="absolute top-[18%] sm:top-[20%] left-0 w-40 sm:w-56 md:w-68 lg:w-80 pointer-events-none z-0 opacity-90">
+              <svg viewBox="0 0 280 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="row2CloudGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFDF7" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#F8F3DC" stopOpacity="0.85" />
+                  </linearGradient>
+                  <linearGradient id="row2CloudGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F8F3DC" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#F2ECCE" stopOpacity="0.75" />
+                  </linearGradient>
+                </defs>
+                {/* Base soft cloud layer */}
+                <path 
+                  d="M-10 75 C12 60 38 58 60 68 C70 50 96 42 122 50 C136 32 165 26 190 36 C208 28 235 32 248 48 C265 44 282 52 288 68 C294 82 284 98 266 102 C225 106 172 108 118 105 C64 102 10 98 -10 92 Z" 
+                  fill="url(#row2CloudGrad2)" 
+                />
+                {/* Foreground crisp puffy cloud layer */}
+                <path 
+                  d="M-10 65 C10 52 34 50 54 60 C64 44 88 38 112 45 C125 30 152 24 174 34 C190 26 215 30 226 44 C240 42 255 50 260 64 C264 76 253 90 238 94 C198 98 154 100 105 98 C55 95 10 90 -10 85 Z" 
+                  fill="url(#row2CloudGrad1)" 
+                />
+              </svg>
+            </div>
+
             {/* Left Edge Leaf - Between Rows 2 & 3 */}
             <div className="absolute top-[32%] left-0 w-16 sm:w-20 md:w-28 pointer-events-none z-0 opacity-80">
               <svg viewBox="0 0 120 140" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
